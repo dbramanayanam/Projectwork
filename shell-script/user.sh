@@ -7,7 +7,7 @@ Y="\e[33m"
 B="\e[34m"
 N="\e[0m"
 LOGFILE="/tmp/user-$(date "+%Y-%m-%d").log"
-MONGOSERVER=172.31.25.22
+MONGOSERVER=mongodb.dineshdevops.com
 
 validation(){
   if [ $1 -eq 0 ]
