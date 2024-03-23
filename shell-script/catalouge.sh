@@ -89,7 +89,7 @@ systemctl daemon-reload &>>$LOGFILE
 validation $? "reloading daemon"
 
 systemctl enable catalogue &>>$LOGFILE
-validation $? "Creating /app directory"
+validation $? "Enabling catalogue service"
 
 
 systemctl start catalogue &>>$LOGFILE
