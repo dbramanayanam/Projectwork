@@ -1,5 +1,5 @@
 component=cart
-source common.sh
+source /home/centos/Projectwork/shell-script/common.sh
 
 permission
 dnf module disable nodejs -y &>>$LOGFILE
