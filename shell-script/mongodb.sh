@@ -21,9 +21,9 @@ validation(){
 permission(){
    if [ $ID -eq 0 ]
      then 
-       echo " $G You are root user, Proceeding further $N"
+       echo -e "$G You are root user, Proceeding further $N"
      else
-        echo "$R Please run as root user $N"
+        echo -e "$R Please run as root user $N"
         exit 1 
    fi 
 }
