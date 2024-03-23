@@ -50,6 +50,8 @@ echo -e "$Y Downloading and extracting project content $N"
 curl -o /tmp/web.zip https://roboshop-builds.s3.amazonaws.com/web.zip &>> $LOGFILE
 cd /usr/share/nginx/html &>> $LOGFILE
 unzip /tmp/web.zip &>> $LOGFILE
+cd 
+cp roboshop.conf /etc/nginx/default.d/roboshop.conf &>> $LOGFILE
 sleep 3
 validation $? "Downloading and extracting project content "
 
