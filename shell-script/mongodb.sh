@@ -5,6 +5,7 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 B="\e[34m"
+N="\e[0m"
 LOGFILE=/tmp/mongodb-$(date "+%Y-%m-%d")
 
 validation(){
@@ -14,7 +15,7 @@ validation(){
     else 
       echo -e "$Y $2 ..... $R FAILED$N"
       exit 1
-    fi
+  fi
 }
 
 permission(){
@@ -29,7 +30,7 @@ permission(){
 
 echo -e "$B Copying mongo.repo file $N"
 permission
-cp /home/centos/Projectwork/shell-script/mongo.repo\   /etc/yum.repos.d/mongo.repo &>>$LOGFILE
+cp /home/centos/Projectwork/shell-script/mongo.repo  /etc/yum.repos.d/mongo.repo &>>$LOGFILE
 validation $1 "Copying mongo.repo file"
 sleep 3
 
