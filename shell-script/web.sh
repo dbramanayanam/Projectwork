@@ -16,13 +16,13 @@ privilage(){
 }
 
 validation(){
- if [ $1 -eq 0 ]
- then 
-  echo -e "$G SUCCESS: $Y $2 is successfull $N"
- else
-   echo -e "$R ERROR: $2 is falied. Please check logs $N"
-   exit 1 
- fi      
+    if [ $1 -ne 0 ]
+      then 
+        echo -e "$R ERROR: $2 is falied. Please check logs $N"
+        exit 1 
+    else
+        echo -e "$G SUCCESS: $Y $2 is successfull $N"   
+    fi      
 }
 
 
