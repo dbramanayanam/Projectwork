@@ -29,40 +29,42 @@ validation(){
 echo -e "$Y Installing Nginx $N"
 privilage 
 dnf install nginx -y &>> $LOGFILE
-sleep 3
 validation $? "Installation of Nginx"
+sleep 3
 
 echo -e "$Y Enabling Nginx $N"
 systemctl enable nginx &>> $LOGFILE
-sleep 3
 validation $? "Enabling Nginx"
+sleep 3
 
 echo -e "$Y Starting Nginx $N"
 systemctl start nginx &>> $LOGFILE
-sleep 3
 validation $? "Starting Nginx"
+sleep 3
 
 echo -e "$Y Removing default content of Nginx $N"
 rm -rf /usr/share/nginx/html/* &>> $LOGFILE
-sleep 3
 validation $? "Removing default content of Nginx"
+sleep 3
 
 echo -e "$Y Downloading and extracting project content $N"
 curl -o /tmp/web.zip https://roboshop-builds.s3.amazonaws.com/web.zip &>> $LOGFILE
+validation $? "Downloading project content "
 cd /usr/share/nginx/html &>> $LOGFILE
+validation $? "Changing directory "
 unzip /tmp/web.zip &>> $LOGFILE
+validation $? "extracting project content "
 sleep 3
-validation $? "Downloading and extracting project content "
 
 echo -e "$Y Copying roboshop.conf file $N"
 cp /home/centos/Projectwork/shell-script/roboshop.conf  /etc/nginx/default.d/roshop.conf &>> $LOGFILE
-sleep 3
 validation $? "Copying roboshop.conf file"
+sleep 3
 
 echo -e "$Y Restarting Nginx $N"
 systemctl restart nginx &>> $LOGFILE
-sleep 3
 validation $? "restarting Nginx"
+sleep 3
 
 # dnf install ngin# systemctl enable n# systemctl start nginx
 # rm -rf /usr/share/nginx/html/*
