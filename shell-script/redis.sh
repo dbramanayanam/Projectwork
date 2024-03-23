@@ -48,7 +48,7 @@ sed -i s/127.0.0.1/0.0.0.0/g /etc/redis/redis.conf &>> $LOGFILE
 validation $? "Modifying /etc/redis/redis.conf with 0.0.0.0"
 
 systemctl enable redis  &>> $LOGFILE
-validation $? "enable redis". &>> $LOGFILE
+validation $? "enable redis"
 
 systemctl start redis &>> $LOGFILE
-validation $? "start redis". &>> $LOGFILE
+validation $? "start redis"
