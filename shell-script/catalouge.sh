@@ -74,7 +74,7 @@ validation $? "Installing dependencies"
 cp /home/centos/Projectwork/shell-script/catalogue.service  /etc/systemd/system/catalogue.service &>>$LOGFILE
 validation $? "Copying catalogue.service file"
 
-systemctl daemon-reload. &>>$LOGFILE
+systemctl daemon-reload &>>$LOGFILE
 validation $? "reloading daemon"
 
 systemctl enable catalogue &>>$LOGFILE
