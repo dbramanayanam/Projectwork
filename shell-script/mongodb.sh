@@ -6,7 +6,7 @@ G="\e[32m"
 Y="\e[33m"
 B="\e[34m"
 N="\e[0m"
-LOGFILE=/tmp/mongodb-$(date "+%Y-%m-%d")
+LOGFILE="/tmp/mongodb-$(date "+%Y-%m-%d")"
 
 validation(){
   if [ $1 -eq 0 ]
