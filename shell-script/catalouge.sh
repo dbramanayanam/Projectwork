@@ -58,7 +58,10 @@ fi
 DIR="/app"
 if [ -d "$DIR" ]
  then 
-   echo -e "$R directory is already exists. skippoing it $N"
+   echo -e "$R directory is already exists. Deleting and creating agian $N"
+   rm -rf /app &>>$LOGFILE
+   mkdir /app &>>$LOGFILE
+   validation $? "Creating /app directory"
    
  else 
   echo -e "$G Creating /app directory $N" 
