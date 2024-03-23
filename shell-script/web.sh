@@ -7,22 +7,22 @@ G="\e[32m]"
 Y="\e[33m]"
 LOGFILE=/tmp/logfile-$(date "+%Y-%m-%d")
 privilage(){
-if [ $ID -eq 0 ];
-then 
- echo -e "$G You are root user. Proceeding with installation $N"
-else 
-  echo -e " $R You are not root user. Please run as root user to proceed $N"
-fi
+ if [ $ID -eq 0 ]
+  then 
+   echo -e "$G You are root user. Proceeding with installation $N"
+  else 
+   echo -e " $R You are not root user. Please run as root user to proceed $N"
+ fi
 }
 
 validation(){
-if [ $1 -eq 0 ];
+ if [ $1 -eq 0 ]
  then 
   echo -e "$G SUCCESS: $Y $2 is successfull $N"
  else
    echo -e "$R ERROR: $2 is falied. Please check logs $N"
    exit 1 
-fi      
+ fi      
 }
 
 
