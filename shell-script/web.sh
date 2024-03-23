@@ -24,7 +24,9 @@ if [ $1 -eq 0 ];
 fi      
 }
 
+
 echo -e "$Y Installing Nginx $N"
+privilage 
 dnf install nginx -y &>> $LOGFILE
 sleep 3
 validation $? "Installation of Nginx"
