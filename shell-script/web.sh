@@ -57,7 +57,7 @@ validation $? "extracting project content "
 sleep 3
 
 echo -e "$Y Copying roboshop.conf file $N"
-cp /home/centos/Projectwork/shell-script/roboshop.conf  /etc/nginx/default.d/roshop.conf &>> $LOGFILE
+cp /home/centos/Projectwork/shell-script/roboshop.conf\   /etc/nginx/default.d/roshop.conf &>> $LOGFILE
 validation $? "Copying roboshop.conf file"
 sleep 3
 
