@@ -65,3 +65,17 @@ validation $? "extracting the content"
 
 }
 
+service_enable_start(){
+
+systemctl enable ${component} &>>$LOGFILE
+validation $? "Enabling ${component} service"
+
+systemctl start ${component} &>>$LOGFILE
+validation $? "Starting ${component} service"
+
+}
+creating_service(){
+ cp /home/centos/Projectwork/shell-script/${component}.service  /etc/systemd/system/${component}.service &>>$LOGFILE
+ validation $? "Copying ${component}.service file"
+
+}
