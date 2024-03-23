@@ -55,8 +55,16 @@ if [ $? -ne 0 ]
     echo -e " $R user roboshop is already exists.. Skipping creating user"
 fi
 
-mkdir /app &>>$LOGFILE
-validation $? "Creating /app directory"
+DIR="/app"
+if [ -d "$DIR" ]
+ then 
+   echo -e "$R directory is already exists. skippoing it $N"
+   
+ else 
+  echo -e "$G Creating /app directory $N" 
+  mkdir /app &>>$LOGFILE
+  validation $? "Creating /app directory"
+fi
 
 
 curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip &>>$LOGFILE
