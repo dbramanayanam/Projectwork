@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ID=$(id -u)
 R="\e[31m"
 G="\e[32m"
@@ -57,7 +59,7 @@ user_app_req(){
      useradd roboshop &>>$LOGFILE
      validation $? "adding user roboshop"
    else
-      echo -e " $R user roboshop is already exists.. Skipping creating user"
+      echo -e " $R user roboshop is already exists.. Skipping creating user$N"
   fi
   
   DIR="/app"

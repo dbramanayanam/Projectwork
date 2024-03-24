@@ -20,6 +20,5 @@ validation $? "extracting project content "
 cp /home/centos/Projectwork/shell-script/roboshop.conf\   /etc/nginx/default.d/roshop.conf &>> $LOGFILE
 validation $? "Copying roboshop.conf file"
 
-echo -e "$Y Restarting Nginx $N"
 systemctl restart nginx &>> $LOGFILE
 validation $? "restarting Nginx"
