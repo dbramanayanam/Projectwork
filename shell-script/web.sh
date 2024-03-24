@@ -14,7 +14,7 @@ curl -o /tmp/web.zip https://roboshop-builds.s3.amazonaws.com/web.zip &>> $LOGFI
 validation $? "Downloading project content "
 cd /usr/share/nginx/html &>> $LOGFILE
 validation $? "Changing directory "
-unzip /tmp/web.zip &>> $LOGFILE
+unzip -o /tmp/web.zip &>> $LOGFILE
 validation $? "extracting project content "
 
 cp /home/centos/Projectwork/shell-script/roboshop.conf\   /etc/nginx/default.d/roshop.conf &>> $LOGFILE
