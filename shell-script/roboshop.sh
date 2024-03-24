@@ -3,8 +3,8 @@ echo "Creating Ec2 Instances"
 IMAGE_ID=ami-0f3c7d07486cad139
 SG_ID=sg-05f9f061d6e0805f8
 INSTANCE=("mongodb" "mysql" "redis" "rabbitmq" "frontend" "catalogue" "cart" "user" "shipping" "payment" "dispatch")
-ZONE_ID=Z04779951FJBY8Q4VSKHA
-DOMAIN_NAME=dineshdevops.com
+ZONE_ID=Z051889327O7Z1ITOEICM
+DOMAIN_NAME=dineshdevops.online
 
 for i in "${INSTANCE[@]}"
 do 
