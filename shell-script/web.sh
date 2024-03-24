@@ -17,7 +17,7 @@ validation $? "Changing directory "
 unzip -o /tmp/web.zip &>> $LOGFILE
 validation $? "extracting project content "
 
-cp /home/centos/Projectwork/shell-script/roboshop.conf\   /etc/nginx/default.d/roshop.conf &>> $LOGFILE
+cp /home/centos/Projectwork/shell-script/roboshop.conf\   /etc/nginx/default.d/roboshop.conf &>> $LOGFILE
 validation $? "Copying roboshop.conf file"
 
 systemctl restart nginx &>> $LOGFILE
