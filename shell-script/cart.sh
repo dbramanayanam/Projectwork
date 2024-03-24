@@ -1,6 +1,7 @@
 component=cart
 source /home/centos/Projectwork/shell-script/common.sh
 
+permission
 install_nodejs
 
 user_app_req 

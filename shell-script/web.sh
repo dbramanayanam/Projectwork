@@ -2,7 +2,7 @@ component=nginx
 source /home/centos/Projectwork/shell-script/common.sh
 
 echo -e "$Y Installing Nginx $N"
-privilage 
+permission 
 dnf install nginx -y &>> $LOGFILE
 validation $? "Installation of Nginx"
 
