@@ -20,7 +20,7 @@ service_enable_start
 dnf install mysql -y &>>$LOGFILE
 validation $? "Installing mysql"
 
-mysql -h mysql.dineshdevops.com -uroot -pRoboShop@1  < /app/schema/shipping.sql  &>>$LOGFILE
+mysql -h mysql.dineshdevops.online -uroot -pRoboShop@1  < /app/schema/shipping.sql  &>>$LOGFILE
 validation $? "loading schema to mysql"
 
 systemctl restart shipping &>>$LOGFILE

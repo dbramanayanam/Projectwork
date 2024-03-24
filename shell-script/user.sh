@@ -7,5 +7,5 @@ nodejs_dependencies
 creating_service
 service_enable_start
 copy_mongo_repo_install_client
-mongo --host 172.31.85.128 </app/schema/user.js &>>$LOGFILE
+mongo --host mongodb.dineshdevops.online </app/schema/user.js &>>$LOGFILE
 validation $? "Loading schema"
