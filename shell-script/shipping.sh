@@ -13,16 +13,14 @@ validation $? "creating artifact"
 mv target/shipping-1.0.jar shipping.jar &>>$LOGFILE
 validation $? "renaming artifact"
 
-reating_service
-systemctl daemon-reload &>>$LOGFILE
-validation $? "reloading daemon"
+creating_service
 
 service_enable_start
 
 dnf install mysql -y &>>$LOGFILE
 validation $? "Installing mysql"
 
-mysql -h 172.31.25.22 -uroot -pRoboShop@1  < /app/schema/shipping.sql  &>>$LOGFILE
+mysql -h mysql.dineshdevops.com -uroot -pRoboShop@1  < /app/schema/shipping.sql  &>>$LOGFILE
 validation $? "loading schema to mysql"
 
 systemctl restart shipping &>>$LOGFILE

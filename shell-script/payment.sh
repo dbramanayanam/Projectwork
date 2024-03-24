@@ -11,8 +11,4 @@ pip3.6 install -r requirements.txt &>>$LOGFILE
 validation $? "Installing pyton dependencies"
 
 creating_service
-
-systemctl daemon-reload &>>$LOGFILE
-validation $? "reloading payment daemon"
-
 service_enable_start

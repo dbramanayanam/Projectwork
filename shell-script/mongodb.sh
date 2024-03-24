@@ -1,32 +1,5 @@
-#!/bin/bash
-
-ID=$(id -u)
-R="\e[31m"
-G="\e[32m"
-Y="\e[33m"
-B="\e[34m"
-N="\e[0m"
-LOGFILE="/tmp/mongodb-$(date "+%Y-%m-%d")"
-
-validation(){
-  if [ $1 -eq 0 ]
-    then 
-      echo -e "$Y $2 ..... $G SUCCESS$N"
-    else 
-      echo -e "$Y $2 ..... $R FAILED$N"
-      exit 1
-  fi
-}
-
-permission(){
-   if [ $ID -eq 0 ]
-     then 
-       echo -e "$G You are root user, Proceeding further $N"
-     else
-        echo -e "$R Please run as root user $N"
-        exit 1 
-   fi 
-}
+component=mongodb
+source /home/centos/Projectwork/shell-script/common.sh
 
 echo -e "$B Copying mongo.repo file $N"
 permission

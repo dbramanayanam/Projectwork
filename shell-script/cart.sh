@@ -1,29 +1,12 @@
 component=cart
 source /home/centos/Projectwork/shell-script/common.sh
 
-permission
-dnf module disable nodejs -y &>>$LOGFILE
-validation $? "Disabling nodejs module" 
+install_nodejs
 
-dnf module enable nodejs:18 -y &>>$LOGFILE
-validation $? "Enabling nodejs:18 module"
+user_app_req 
 
-dnf install nodejs -y &>>$LOGFILE
-validation $? "Installing nodejs"
+nodejs_dependencies
 
-user_app_req
-cd /app 
-npm install &>>$LOGFILE
-validation $? "Installing dependencies"
+creating_service
 
-cp /home/centos/Projectwork/shell-script/cart.service  /etc/systemd/system/cart.service &>>$LOGFILE
-validation $? "Copying cart.service file"
-
-systemctl daemon-reload &>>$LOGFILE
-validation $? "reloading daemon"
-
-systemctl enable cart &>>$LOGFILE
-validation $? "Enabling cart"
-
-systemctl start cart &>>$LOGFILE
-validation $? "Starting cart"
+service_enable_start

@@ -14,8 +14,4 @@ go build &>> $LOGFILE
 validation $? "Installing dependencies"
 
 creating_service
-
-systemctl daemon-reload &>> $LOGFILE
-validation $? "reloading daemon"
-
 service_enable_start
