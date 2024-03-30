@@ -1,0 +1,37 @@
+- name: Creatin frontend
+  hosts: frontend
+  become: yes
+  tasks:
+    - name: "Installing nginx"
+      ansible.builtin.yum:
+         name: nginx
+         state: latest
+    - name: "Removing default content of nginx"
+      ansible.builtin.file: 
+         path: /usr/share/nginx/html/
+         state: absent
+    - name: "Downloading project content"
+      ansbile.builtin.get_url:
+        url: https://roboshop-builds.s3.amazonaws.com/web.zip
+        dest: /tmp/web.zip
+    - name: "Extracting content of web.zip file"
+      ansible.builtin.unarchive: 
+        src: /tmp/web.zip
+        dest: /usr/share/nginx/html/
+        remote_src: yes
+    - name: "Copying roboshop.conf file" 
+      ansible.builtin.copy:
+        src: /home/centos/Projectwork/Ansible/roboshop.conf
+        dest: /etc/nginx/default.d/roboshop.conf 
+    - name: "Enabling nginx service"
+      ansible.builtin.service:
+         name: nginx
+         enabled: yes
+    - name: "restarting nginx service"
+      ansible.builtin.service:
+        name: nginx
+        state: restarted
+      
+
+
+           
