@@ -31,7 +31,7 @@
        args:
          chdir: /app
      - name: Copying cart.service file
-       ansible.builtin.file:
+       ansible.builtin.copy:
          src: /home/centos/Projectwork/Ansible/cart.service
          dest: /etc/systemd/system/cart.service
      - name: Reloading systemd service
