@@ -48,10 +48,10 @@
       ansible.builtin.copy:
         src: /home/centos/Projectwork/Ansible/mongo.repo
         dest: /etc/yum.repos.d/mongo.repo
-        remote_src: yes
+        
     - name: Install mongodb client
       ansible.builtin.dnf:
          name: mongodb-org-shell
          state: latest
     - name: Load schema
-      ansible.builtin.shell: mongo --host MONGODB-SERVER-IPADDRESS </app/schema/catalogue.js
+      ansible.builtin.shell: mongo --host mongodb.dineshdevops.online </app/schema/catalogue.js
