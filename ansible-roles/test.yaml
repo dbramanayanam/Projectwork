@@ -1,6 +1,0 @@
-- name: testing playbook
-  hosts: frontend
-  become: yes
-  tasks: 
-    - name: testing connection
-      ansible.builtin.ping:
