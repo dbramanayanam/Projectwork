@@ -8,7 +8,7 @@ redis.dineshdevops.online
 rabbitmq.dineshdevops.online 
 [frontend]
 frontend.dineshdevops.online 
-[redis]
+[catalogue]
 catalogue.dineshdevops.online 
 [cart]
 cart.dineshdevops.online
@@ -20,3 +20,16 @@ shipping.dineshdevops.online
 payment.dineshdevops.online 
 [dispatch]
 dispatch.dineshdevops.online
+
+[roboshop:children]
+mongodb
+mysql
+redis
+rabbitmq
+frontend
+catalogue
+cart
+user
+shipping
+payment
+dispatch
