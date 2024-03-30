@@ -1,0 +1,30 @@
+- name: configuring mondogb server
+  hosts: mongodb
+  become: yes
+  tasks: 
+    - name: Copying mongo.repo file
+      ansible.builtin.copy:
+        src: mongo.repo
+        dest: /etc/yum.repos.d/mongodb.repo
+    - name: Install mongodb 
+      ansible.builtin.dnf:
+        name: mongodb-org 
+        state: latest
+    - name: Enabling mongodb
+      ansible.builtin.service:
+        name: mongod
+        enabled: yes
+    - name: Starting mongodb service
+      ansible.builtin.service:
+        name: mongod
+        state: started
+    - name: Replace a io address in mongodb config file
+      ansible.builtin.replace:
+        path: /etc/mongod.conf
+        regexp: '127.0.0.1'
+        replace: '0.0.0.0'
+    - name: Restarting mondoDB
+      ansible.builtin.service:
+         name: mongod
+         state: restarted
+    

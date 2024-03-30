@@ -1,0 +1,35 @@
+- name: Install and configure redis server
+  hosts: redis
+  become: yes
+  tasks:
+    - name: Installing redis package
+      ansible.builtin.package:
+        name: 'https://rpms.remirepo.net/enterprise/remi-release-8.rpm'
+        state: present
+        disable_gpg_check: true
+    - name: Enable redis 6.2 module
+      ansible.builtin.shell: dnf module enable redis:remi-6.2 -y
+    - name: Installing redis
+      ansible.builtin.dnf:
+        name: redis
+        state: latest
+    - name: Modifying the configuration file
+      ansible.builtin.replace:
+        path: /etc/redis.conf 
+        regexp: '127.0.0.1'
+        replace: '0.0.0.0'
+    - name: Modifying /etc/redis/redis.conf file
+      ansible.builtin.replace: 
+        path: /etc/redis/redis.conf
+        regexp: '127.0.0.1'
+        replace: '0.0.0.0'
+
+    - name: Enable redis
+      ansible.builtin.service:
+        name: redis
+        enabled: yes
+    - name:  starting redis 
+      ansible.builtin.service:
+        name: redis
+        state: started
+

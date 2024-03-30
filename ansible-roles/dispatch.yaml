@@ -1,0 +1,43 @@
+- name: Installing and configuring dispatch service
+  hosts: dispatch
+  become: yes
+  tasks: 
+    - name: Installing python 
+      ansible.builtin.dnf: 
+        name: golang
+        state: latest
+    - name: Adding user robosop
+      ansible.builtin.user: 
+       name: roboshop
+    - name: "Creating /app directory"
+      ansible.builtin.file:
+        path: /app
+        state: directory
+    - name: Downloading application code
+      ansible.builtin.get_url: 
+         url: https://roboshop-builds.s3.amazonaws.com/dispatch.zip
+         dest: /tmp/dispatch.zip
+    - name: Extrarting application code
+      ansible.builtin.unarchive:
+        src: /tmp/dispatch.zip
+        dest: /app
+        remote_src: yes
+    - name: Installing dependencies
+      ansible.builtin.shell: go mod init dispatch ; go get ; go build
+      args:
+       chdir: /app
+    - name: Copying dispatch.service file
+      ansible.builtin.copy:
+        src: /home/centos/Projectwork/Ansible/dispatch.service
+        dest: /etc/systemd/system/dispatch.service
+    - name: Reloading systemd service
+      ansible.builtin.systemd_service: 
+         daemon_reload: true
+    - name: Enabling dispatch service 
+      ansible.builtin.service:
+         name: dispatch
+         enabled: yes
+    - name: Starting dispatch service
+      ansible.builtin.service:
+         name: dispatch
+         state: started
