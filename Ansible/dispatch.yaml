@@ -27,7 +27,7 @@
       args:
        chdir: /app
     - name: Copying dispatch.service file
-      ansible.builtin.file:
+      ansible.builtin.copy:
         src: /home/centos/Projectwork/Ansible/dispatch.service
         dest: /etc/systemd/system/dispatch.service
     - name: Reloading systemd service

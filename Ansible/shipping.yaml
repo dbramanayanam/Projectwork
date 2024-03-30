@@ -27,8 +27,8 @@
       args:
        chdir: /app
     - name: Copying shipping.service file
-      ansible.builtin.file:
-        src: /home/centos/Projectwork/Ansible/shipping.service
+      ansible.builtin.copy:
+        src: shipping.service
         dest: /etc/systemd/system/shipping.service
     - name: Reloading systemd service
       ansible.builtin.systemd_service: 
