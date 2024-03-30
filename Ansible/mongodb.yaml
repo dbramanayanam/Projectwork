@@ -7,7 +7,7 @@
         src: /home/centos/Projectwork/Ansible/mongo.repo
         dest: /etc/yum.repos.d/mongo.repo
     - name: Install mongodb 
-      ansible.builtin.dnf:
+      ansible.builtin.package:
         name: mongodb-org 
         state: latest
     - name: Enabling mongodb

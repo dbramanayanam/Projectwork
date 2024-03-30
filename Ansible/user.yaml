@@ -7,7 +7,7 @@
      - name: "Enabling nodejs:18 version"
        ansible.builtin.shell: dnf module enable nodejs:18 -y
      - name: Installing nodejs
-       ansible.builtin.dnf:
+       ansible.builtin.package:
          name: nodejs
          state: latest
      - name: Adding user robosop

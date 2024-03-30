@@ -3,7 +3,7 @@
   become: yes
   tasks:
     - name: Installing redis package
-      ansible.builtin.dnf:
+      ansible.builtin.package:
         name: 'https://rpms.remirepo.net/enterprise/remi-release-8.rpm'
         state: latest
     - name: Enable redis 6.2 module
@@ -32,4 +32,3 @@
         name: redis
         state: started
 
-        
