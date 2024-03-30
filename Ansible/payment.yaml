@@ -10,7 +10,8 @@
           - python3-devel
         state: latest
     - name: Adding user robosop
-      ansible.builtin.user: roboshop
+      ansible.builtin.user: 
+        name: roboshop
     - name: "Creating /app directory"
       ansible.builtin.file:
         path: /app

@@ -7,7 +7,8 @@
         name: maven
         state: latest
     - name: Adding user robosop
-      ansible.builtin.user: roboshop
+      ansible.builtin.user: 
+       name: roboshop
     - name: "Creating /app directory"
       ansible.builtin.file:
         path: /app
@@ -51,4 +52,3 @@
        name: shipping
        state: restarted
 
-       

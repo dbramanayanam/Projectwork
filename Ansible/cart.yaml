@@ -10,8 +10,9 @@
        ansible.builtin.package:
          name: nodejs
          state: latest
-     - name: Adding cart robosop
-       ansible.builtin.cart: roboshop
+     - name: Adding user robosop
+       ansible.builtin.user: 
+         name: roboshop
      - name: "Creating /app directory"
        ansible.builtin.file:
          path: /app
