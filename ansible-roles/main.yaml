@@ -1,0 +1,7 @@
+- name: creating "{{ component }}"
+  hosts: "{{ component }}"
+  vars_files:
+  - variables.yaml
+  roles:
+  - "{{ component }}"
+  
