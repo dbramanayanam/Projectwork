@@ -6,14 +6,17 @@
       ansible.builtin.yum:
          name: nginx
          state: latest
+
     - name: "Removing default content of nginx"
       ansible.builtin.file: 
          path: /usr/share/nginx/html/
          state: absent
+
     - name: "Downloading project content"
       ansbile.builtin.get_url:
         url: https://roboshop-builds.s3.amazonaws.com/web.zip
         dest: /tmp/web.zip
+        
     - name: "Extracting content of web.zip file"
       ansible.builtin.unarchive: 
         src: /tmp/web.zip
