@@ -1,0 +1,8 @@
+   - name: Installing maven
+     ansible.builtin.dnf: 
+       name: maven
+       state: latest
+   - name: Installing dependencies
+     ansible.builtin.shell: mvn clean package ; mv target/shipping-1.0.jar shipping.jar
+     args:
+      chdir: /app

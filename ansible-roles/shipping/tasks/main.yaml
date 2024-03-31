@@ -1,15 +1,11 @@
-    - name: Installing maven
-      ansible.builtin.dnf: 
-        name: maven
-        state: latest
     - name: application_setup
       ansible.builtin.import_role:
         name: common
         tasks_from: app-setup
-    - name: Installing dependencies
-      ansible.builtin.shell: mvn clean package ; mv target/shipping-1.0.jar shipping.jar
-      args:
-       chdir: /app
+    - name: java-setup
+      ansible.builtin.import_role: 
+        name: common
+        tasks_from: java-setup  
     - name: configurings service 
       ansible.builtin.import_role:
         name: common
