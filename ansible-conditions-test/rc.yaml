@@ -5,7 +5,6 @@
      - name: create a file
        ansible.builtin.file:
          path: /tmp/dinesh
-         state: file
        register: output
      - name: Printing output
        ansible.builtin.debug: 
