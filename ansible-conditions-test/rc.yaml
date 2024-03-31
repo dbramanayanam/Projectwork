@@ -12,4 +12,4 @@
         var: output
      - ansible.builtin.debug:
         msg: "Hello I am dinesh"
-       when: output.failed == false
+       when: output.failed == true
