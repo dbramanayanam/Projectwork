@@ -6,8 +6,8 @@ mysql.dineshdevops.online
 redis.dineshdevops.online 
 [rabbitmq]
 rabbitmq.dineshdevops.online 
-[frontend]
-frontend.dineshdevops.online 
+[web]
+web.dineshdevops.online 
 [catalogue]
 catalogue.dineshdevops.online 
 [cart]
