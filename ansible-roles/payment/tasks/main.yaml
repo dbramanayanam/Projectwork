@@ -1,0 +1,16 @@
+- name: Installing and configuring payment service
+  hosts: payment
+  become: yes
+  tasks: 
+    - name: app-setup
+      ansible.builtin.import_role:
+        name: common
+        tasks_from: app-setup
+    - name: python setup
+      ansible.builtin.import_role:
+        name: common
+        tasks_from: python-setup
+    - name: configuring service
+      ansible.builtin.import_role:
+        name: common
+        tasks_from: service
