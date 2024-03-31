@@ -1,7 +1,3 @@
-- name: Installing and configuring payment service
-  hosts: payment
-  become: yes
-  tasks: 
     - name: app-setup
       ansible.builtin.import_role:
         name: common
