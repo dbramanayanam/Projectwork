@@ -20,4 +20,9 @@
      - name: printing output
        ansible.builtin.debug: 
          var: paddu 
+     - name: creating a file 
+       ansible.builtin.file:
+         path: /tmp/paddu
+         state: touch
+       when: paddu.exists == false
         
