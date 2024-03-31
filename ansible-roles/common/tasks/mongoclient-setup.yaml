@@ -8,4 +8,4 @@
         name: mongodb-org-shell
         state: latest
    - name: Load schema
-     ansible.builtin.shell: mongo --host "{{MONGODB_HOST}}" </app/schema/"{{component}}".js
+     ansible.builtin.shell: "mongo --host {{MONGODB_HOST}} </app/schema/{{component}}.js"

@@ -1,16 +1,16 @@
   - name: Copying "{{component}}".service file
     ansible.builtin.copy:
-      src: /home/centos/Projectwork/Ansible/"{{component}}".service
-      dest: /etc/systemd/system/"{{component}}".service
+      src: "{component}}.service"
+      dest: "/etc/systemd/system/{{component}}.service"
   
   - name: Reloading systemd service
     ansible.builtin.systemd_service: 
        daemon_reload: true
-  - name: Enabling "{{component}}" service 
+  - name: "Enabling {{component}} service"
     ansible.builtin.service:
        name: "{{component}}"
        enabled: yes
-  - name: Starting "{{component}}" service
+  - name: "Starting {{component}} service"
     ansible.builtin.service:
       name: "{{component}}"
       state: started
