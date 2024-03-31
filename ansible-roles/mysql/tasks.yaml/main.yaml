@@ -1,7 +1,3 @@
-- name: configuring mysql server
-  hosts: mysql
-  become: yes
-  tasks:
     - name: disabling mysql module
       ansible.builtin.shell: dnf module disable mysql -y
     - name: Copying mysql.repo file
