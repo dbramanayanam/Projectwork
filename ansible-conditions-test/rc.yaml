@@ -9,4 +9,4 @@
        register: output
      - name: Printing output
        ansible.builtin.debug: 
-         - var: output
+        var: output
