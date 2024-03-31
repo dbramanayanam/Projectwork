@@ -13,3 +13,11 @@
      - ansible.builtin.debug:
         msg: "Hello I am dinesh"
        when: output.failed == true
+     - name: checking if a file exists or not
+       ansible.builtin.stat:
+         path: /tmp/paddu
+       register: paddu 
+     - name: printing output
+       ansible.builtin.debug: 
+         var: paddu 
+        
