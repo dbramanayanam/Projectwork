@@ -25,8 +25,8 @@
         remote_src: yes
 
     - name: "Copying roboshop.conf file" 
-      ansible.builtin.copy:
-        src: roboshop.conf
+      ansible.builtin.template:
+        src: roboshop.conf.j2
         dest: /etc/nginx/default.d/roboshop.conf 
       notify: 
          - restart nginx
