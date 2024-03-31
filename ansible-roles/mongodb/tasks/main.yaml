@@ -1,7 +1,3 @@
-- name: configuring mondogb server
-  hosts: mongodb
-  become: yes
-  tasks: 
     - name: Copying mongo.repo file
       ansible.builtin.copy:
         src: mongo.repo
@@ -27,4 +23,3 @@
       ansible.builtin.service:
          name: mongod
          state: restarted
-    
