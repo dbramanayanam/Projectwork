@@ -34,7 +34,3 @@ shipping
 payment
 dispatch
 
-[all:vars]
-ansible_connection=ssh
-ansible_user=centos
-ansible_ssh_pass=DevOps321
