@@ -9,3 +9,5 @@ USER_HOST: user.dineshdevops.online
 SHIPPING_HOST: shipping.dineshdevops.online 
 PAYMENT_HOST: payment.dineshdevops.online 
 DISPATCH_HOST: dispatch.dineshdevops.online
+NEXUS_URL: http://34.201.124.210:8081/repository
+GROUP_ID: "com/roboshop"
